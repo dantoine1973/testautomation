@@ -1,0 +1,130 @@
+# ============================
+# GLOBAL IGNORE
+# ============================
+.DS_Store
+Thumbs.db
+*.log
+*.tmp
+*.swp
+*.swo
+
+# ============================
+# PYTHON
+# ============================
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.pdb
+*.egg-info/
+.eggs/
+build/
+dist/
+pip-wheel-metadata/
+.pytest_cache/
+.tox/
+.mypy_cache/
+coverage.xml
+htmlcov/
+.cache/
+
+# Virtual environments
+venv/
+env/
+ENV/
+.venv/
+
+# Allure Reports
+allure-results/
+allure-report/
+*/allure-results/
+*/allure-report/
+
+# ============================
+# PLAYWRIGHT (Python + JS)
+# ============================
+playwright-report/
+test-results/
+node_modules/
+package-lock.json
+
+# ============================
+# JAVA + MAVEN
+# ============================
+target/
+*.class
+*.jar
+*.war
+*.ear
+*.iml
+*.project
+*.classpath
+*.settings/
+
+# ============================
+# SELENIUM (Java + Python)
+# ============================
+selenium-report/
+reports/
+output/
+
+# ============================
+# IDE / EDITOR
+# ============================
+# VS Code
+.vscode/
+
+# PyCharm / IntelliJ
+.idea/
+*.iml
+
+# Eclipse
+.settings/
+.metadata/
+
+# ============================
+# TESTING FRAMEWORKS
+# ============================
+# Pytest
+.pytest_cache/
+
+# JUnit / TestNG
+test-output/
+surefire-reports/
+failsafe-reports/
+
+# Cucumber
+cucumber-reports/
+*.feature.cache
+
+# ============================
+# MISC
+# ============================
+# JSON credentials or secrets
+credentials.json
+*.pem
+*.key
+*.crt
+
+# Temporary files
+tmp/
+temp/
+*.bak
+*.old
+
+# ============================
+# PROJECT-SPECIFIC
+# ============================
+# Playwright Java Framework
+demo/target/
+playwright-java-automation-framework/demo/target/
+
+# Python Selenium
+python-selenium/tests/allure-report/
+python-selenium/allure-results/
+
+# Playwright Python
+Playwright Python Automation Testing/**/__pycache__/
+Playwright Python Automation Testing/**/.pytest_cache/
+Playwright Python Automation Testing/**/allure-results/
+Playwright Python Automation Testing/**/allure-report/
