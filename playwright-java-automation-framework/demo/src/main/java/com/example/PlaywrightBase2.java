@@ -98,7 +98,13 @@ public abstract class PlaywrightBase2 {
             // ⭐ IMPORTANT: remove viewport so maximize works
             context.set(browser.get().newContext(new Browser.NewContextOptions().setViewportSize(null)));
 
+            // set timeout for both navigation and actions
+            int navigationTimeout = Integer.parseInt(System.getProperty("navigation.timeout", "30000"));
+            int actionTimeout = Integer.parseInt(System.getProperty("action.timeout", "15000"));
+
             page.set(context.get().newPage());
+            page.get().setDefaultNavigationTimeout(navigationTimeout);
+            page.get().setDefaultTimeout(actionTimeout);
 
             // ⭐ Cross-browser maximize (works in Firefox)
             Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();

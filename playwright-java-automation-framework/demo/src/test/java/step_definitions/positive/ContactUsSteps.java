@@ -9,9 +9,15 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import net.datafaker.Faker;
+import context.PersonContext;
 
 public class ContactUsSteps extends PlaywrightBase2 {
     private final Faker faker = new Faker();
+    private final PersonContext personContext;
+
+    public ContactUsSteps(PersonContext personContext) {
+        this.personContext = personContext;
+    }
 
     @Given("I navigate to the WebDriverU homepage")
     public void navigateToHomepage() {
@@ -27,6 +33,7 @@ public class ContactUsSteps extends PlaywrightBase2 {
     @And("I type in a random first name")
     public void typeRandomFirstName() {
         String randomFirstName = faker.name().firstName();
+        personContext.setRandomFirstName(randomFirstName);
         this.getPage().locator("input[name='first_name']").fill(randomFirstName);
     }
 
@@ -38,6 +45,7 @@ public class ContactUsSteps extends PlaywrightBase2 {
     @And("I type in a random last name")
     public void typeRandomLastName() {
         String randomLastName = faker.name().lastName();
+        personContext.setRandomLastName(randomLastName);
         this.getPage().locator("input[name='last_name']").fill(randomLastName);
     }
 
@@ -55,12 +63,20 @@ public class ContactUsSteps extends PlaywrightBase2 {
     @And("I type in a random valid email address")
     public void typeRandomEmail() {
         String randomEmailAddress = faker.internet().emailAddress();
+        personContext.setRandomEmailAddress(randomEmailAddress);
         this.getPage().locator("input[name='email']").fill(randomEmailAddress);
     }
 
     @And("I type in a specific valid email address {string}")
     public void typeSpecificEmail(String emailAddress) {
         this.getPage().locator("input[name='email']").fill(emailAddress);
+    }
+
+@And("I type a random comment in the comment input field")
+    public void typeRandomComment() {
+        String randomComment = faker.lorem().sentence();
+        personContext.setRandomComment(randomComment);
+        this.getPage().locator("textarea[name='message']").fill(randomComment);
     }
 
     @And("I type the specific text {string} and a number {int} in the comment input field")

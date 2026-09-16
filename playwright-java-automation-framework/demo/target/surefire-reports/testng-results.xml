@@ -1,93 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="10" passed="10" failed="0" skipped="0">
+<testng-results ignored="0" total="6" passed="6" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2026-09-02T21:53:48 PDT" name="CucumberSuite" finished-at="2026-09-02T21:54:05 PDT" duration-ms="16984">
+  <suite started-at="2026-09-15T14:50:10 PDT" name="Surefire suite" finished-at="2026-09-15T14:50:47 PDT" duration-ms="37058">
     <groups>
       <group name="cucumber">
-        <method signature="AbstractTestNGCucumberTests.runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:runner.CucumberContactUsNegTest@75329a49]" name="runScenario" class="io.cucumber.testng.AbstractTestNGCucumberTests"/>
-        <method signature="AbstractTestNGCucumberTests.runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:runner.CucumberContactUsTest@2b6faea6]" name="runScenario" class="io.cucumber.testng.AbstractTestNGCucumberTests"/>
-        <method signature="AbstractTestNGCucumberTests.runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:runner.CucumberLoginPageTest@778d1062]" name="runScenario" class="io.cucumber.testng.AbstractTestNGCucumberTests"/>
+        <method signature="AbstractTestNGCucumberTests.runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:runner.CucumberContactUsTest@17c1bced]" name="runScenario" class="io.cucumber.testng.AbstractTestNGCucumberTests"/>
       </group> <!-- cucumber -->
     </groups>
-    <test started-at="2026-09-02T21:53:48 PDT" name="CucumberTests" finished-at="2026-09-02T21:54:05 PDT" duration-ms="16984">
+    <test started-at="2026-09-15T14:50:10 PDT" name="Surefire test" finished-at="2026-09-15T14:50:47 PDT" duration-ms="37058">
       <class name="runner.CucumberContactUsTest">
-        <test-method is-config="true" signature="setUpClass(org.testng.ITestContext)[pri:0, instance:runner.CucumberContactUsTest@2b6faea6]" started-at="2026-09-02T21:53:48 PDT" name="setUpClass" finished-at="2026-09-02T21:53:49 PDT" duration-ms="348" status="PASS">
+        <test-method is-config="true" signature="setUpClass(org.testng.ITestContext)[pri:0, instance:runner.CucumberContactUsTest@17c1bced]" started-at="2026-09-15T14:50:10 PDT" name="setUpClass" finished-at="2026-09-15T14:50:10 PDT" duration-ms="473" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[org.testng.TestRunner@49e53c76]]>
+                <![CDATA[org.testng.TestRunner@636be97c]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUpClass -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:runner.CucumberContactUsTest@2b6faea6]" started-at="2026-09-02T21:53:49 PDT" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-09-02T21:54:02 PDT" duration-ms="13715" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA["Validate Contact Us Page"]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA["webdriveruniversity.com - Contact Us Page"]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- runScenario -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:runner.CucumberContactUsTest@2b6faea6]" started-at="2026-09-02T21:53:49 PDT" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-09-02T21:54:02 PDT" duration-ms="13037" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA["Validate Contact Us Page"]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA["webdriveruniversity.com - Contact Us Page"]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- runScenario -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:runner.CucumberContactUsTest@2b6faea6]" started-at="2026-09-02T21:53:49 PDT" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-09-02T21:54:03 PDT" duration-ms="14643" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA["Validate Contact Us Page"]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA["webdriveruniversity.com - Contact Us Page"]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- runScenario -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:runner.CucumberContactUsTest@2b6faea6]" started-at="2026-09-02T21:53:49 PDT" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-09-02T21:54:02 PDT" duration-ms="13228" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA["Valid Contact Us Form Submission - Using Random Data"]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA["webdriveruniversity.com - Contact Us Page"]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- runScenario -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:runner.CucumberContactUsTest@2b6faea6]" started-at="2026-09-02T21:53:49 PDT" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-09-02T21:54:04 PDT" duration-ms="15169" status="PASS">
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:runner.CucumberContactUsTest@17c1bced]" started-at="2026-09-15T14:50:10 PDT" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-09-15T14:50:21 PDT" duration-ms="10799" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -103,7 +37,23 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runScenario -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:runner.CucumberContactUsTest@2b6faea6]" started-at="2026-09-02T21:54:02 PDT" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-09-02T21:54:05 PDT" duration-ms="3557" status="PASS">
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:runner.CucumberContactUsTest@17c1bced]" started-at="2026-09-15T14:50:21 PDT" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-09-15T14:50:26 PDT" duration-ms="5262" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Valid Contact Us Form Submission - Using Random Data"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["webdriveruniversity.com - Contact Us Page"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:runner.CucumberContactUsTest@17c1bced]" started-at="2026-09-15T14:50:26 PDT" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-09-15T14:50:32 PDT" duration-ms="5250" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -119,109 +69,59 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runScenario -->
-        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:runner.CucumberContactUsTest@2b6faea6]" started-at="2026-09-02T21:54:05 PDT" name="tearDownClass" finished-at="2026-09-02T21:54:05 PDT" duration-ms="11" status="PASS">
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:runner.CucumberContactUsTest@17c1bced]" started-at="2026-09-15T14:50:32 PDT" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-09-15T14:50:37 PDT" duration-ms="5347" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Validate Contact Us Page"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["webdriveruniversity.com - Contact Us Page"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:runner.CucumberContactUsTest@17c1bced]" started-at="2026-09-15T14:50:37 PDT" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-09-15T14:50:42 PDT" duration-ms="4955" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Validate Contact Us Page"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["webdriveruniversity.com - Contact Us Page"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:runner.CucumberContactUsTest@17c1bced]" started-at="2026-09-15T14:50:42 PDT" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-09-15T14:50:47 PDT" duration-ms="4904" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Validate Contact Us Page"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["webdriveruniversity.com - Contact Us Page"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:runner.CucumberContactUsTest@17c1bced]" started-at="2026-09-15T14:50:47 PDT" name="tearDownClass" finished-at="2026-09-15T14:50:47 PDT" duration-ms="27" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDownClass -->
       </class> <!-- runner.CucumberContactUsTest -->
-      <class name="runner.CucumberLoginPageTest">
-        <test-method is-config="true" signature="setUpClass(org.testng.ITestContext)[pri:0, instance:runner.CucumberLoginPageTest@778d1062]" started-at="2026-09-02T21:53:48 PDT" name="setUpClass" finished-at="2026-09-02T21:53:49 PDT" duration-ms="347" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[org.testng.TestRunner@49e53c76]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setUpClass -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:runner.CucumberLoginPageTest@778d1062]" started-at="2026-09-02T21:53:49 PDT" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-09-02T21:54:02 PDT" duration-ms="13602" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA["Login Portal Submission Attempts"]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA["webdriveruniversity.com - Login Page"]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- runScenario -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:runner.CucumberLoginPageTest@778d1062]" started-at="2026-09-02T21:53:49 PDT" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-09-02T21:54:03 PDT" duration-ms="14594" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA["Login Portal Submission Attempts"]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA["webdriveruniversity.com - Login Page"]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- runScenario -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:runner.CucumberLoginPageTest@778d1062]" started-at="2026-09-02T21:53:49 PDT" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-09-02T21:54:03 PDT" duration-ms="14067" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA["Login Portal Submission Attempts"]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA["webdriveruniversity.com - Login Page"]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- runScenario -->
-        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:runner.CucumberLoginPageTest@778d1062]" started-at="2026-09-02T21:54:03 PDT" name="tearDownClass" finished-at="2026-09-02T21:54:03 PDT" duration-ms="27" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tearDownClass -->
-      </class> <!-- runner.CucumberLoginPageTest -->
-      <class name="runner.CucumberContactUsNegTest">
-        <test-method is-config="true" signature="setUpClass(org.testng.ITestContext)[pri:0, instance:runner.CucumberContactUsNegTest@75329a49]" started-at="2026-09-02T21:53:48 PDT" name="setUpClass" finished-at="2026-09-02T21:53:49 PDT" duration-ms="346" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[org.testng.TestRunner@49e53c76]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setUpClass -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:runner.CucumberContactUsNegTest@75329a49]" started-at="2026-09-02T21:53:49 PDT" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-09-02T21:54:02 PDT" duration-ms="13508" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA["Valid Contact Us Form Submission"]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA["webdriveruniversity.com - Contact Us Page - Invalid Email Address"]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- runScenario -->
-        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:runner.CucumberContactUsNegTest@75329a49]" started-at="2026-09-02T21:54:02 PDT" name="tearDownClass" finished-at="2026-09-02T21:54:02 PDT" duration-ms="20" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tearDownClass -->
-      </class> <!-- runner.CucumberContactUsNegTest -->
-    </test> <!-- CucumberTests -->
-  </suite> <!-- CucumberSuite -->
+    </test> <!-- Surefire test -->
+  </suite> <!-- Surefire suite -->
 </testng-results>
