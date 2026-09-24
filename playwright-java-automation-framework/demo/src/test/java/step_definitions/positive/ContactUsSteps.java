@@ -9,25 +9,30 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import net.datafaker.Faker;
+import pages.base.BasePage;
 import context.PersonContext;
 
 public class ContactUsSteps extends PlaywrightBase2 {
     private final Faker faker = new Faker();
     private final PersonContext personContext;
+    private final BasePage basePage;
 
     public ContactUsSteps(PersonContext personContext) {
         this.personContext = personContext;
+        this.basePage = new BasePage();
     }
 
     @Given("I navigate to the WebDriverU homepage")
     public void navigateToHomepage() {
-        this.getPage().navigate("https://www.webdriveruniversity.com/");
+        basePage.navigateTo("https://www.webdriveruniversity.com/");
     }
 
     @When("I click on the Contact Us button")
     public void clickContactUs() {
-        this.setPage(this.getPage().waitForPopup(() -> this.getPage().getByText("CONTACT US").first().click()));
-        this.getPage().waitForURL("**/Contact-Us/contactus.html");
+        basePage.waitAndClickByRole("LINK", "CONTACT US");
+
+        // this.setPage(this.getPage().waitForPopup(() -> this.getPage().getByText("CONTACT US").first().click()));
+        // this.getPage().waitForURL("**/Contact-Us/contactus.html");
     }
 
     @And("I type in a random first name")
