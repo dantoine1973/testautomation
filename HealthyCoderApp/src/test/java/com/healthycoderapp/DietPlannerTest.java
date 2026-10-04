@@ -8,6 +8,7 @@ import com.healthycoderapp.Coder;
 import java.util.List;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.RepeatedTest;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.AfterAll;
 
@@ -23,7 +24,8 @@ public class DietPlannerTest {
     void teardown() {
         System.out.println("Unit test completed.");
     }
-    @Test
+
+    @RepeatedTest(value = 1, name = RepeatedTest.LONG_DISPLAY_NAME)
     void shouldReturnCorrectDietPlan_WhenCorrectCoderIsGiven() {
         // given
         Coder coder = new Coder(1.82, 75.0, 26, Gender.MALE);
