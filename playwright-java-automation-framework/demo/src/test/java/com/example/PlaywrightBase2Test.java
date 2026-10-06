@@ -4,12 +4,17 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertAll;
+
 // import com.example.PlaywrightBase2;
 
 public class PlaywrightBase2Test {
 
 @ParameterizedTest
-    @ValueSource(strings = {"chromium", "firefox", "edge", "chrome"})
+    @ValueSource(strings = {"chromium", "firefox", "edge", "chrome", "webkit"})
     public void browserShouldUseCorrectValidValueWhenBrowserIsLaunched(String browser) {
         // given - the browser system property is set to the specified value
         System.setProperty("browser", browser);
@@ -37,8 +42,13 @@ public class PlaywrightBase2Test {
         };
         playwrightBase2.startPlaywright();
 
-        // then - the browser system property should be "chromium"
-        assertEquals("chromium", System.getProperty("browser", "chromium"));
+        // then - the browser system property should still be "invalid-browser" 
+        // AND the browser launched should be "chromium"
+
+        assertAll(
+    () -> assertNotNull(playwrightBase2.getBrowser(), "Browser should launch"),
+    () -> assertEquals("chromium", playwrightBase2.getBrowser().browserType().name())
+);
     }
 
     @Test
