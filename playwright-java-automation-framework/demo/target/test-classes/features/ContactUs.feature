@@ -20,7 +20,7 @@ Feature: webdriveruniversity.com - Contact Us Page
     And I type a random comment in the comment input field
     # And I type the specific text "Hello world" and a number 2026 in the comment input field
     And I click on the Submit button
-    Then I should be presented with a successful contact us submission message
+    Then I should be presented with header text 'Thank You for your Message!'
 
   @smoke
   Scenario Outline: Validate Contact Us Page

@@ -21,7 +21,7 @@ public class BasePage extends PlaywrightBase2 {
     // This method can be implemented to wait for an element by selector and click
     // it.
 
-    public void waitAndClickSelector(String selector) {
+    public void waitAndClickBySelector(String selector) {
 
         this.getPage().waitForSelector(selector,
                 new Page.WaitForSelectorOptions().setState(WaitForSelectorState.VISIBLE));
@@ -30,12 +30,16 @@ public class BasePage extends PlaywrightBase2 {
 
     // This method can be implemented to wait for an element and click it.
 
-    public void waitAndClick(Locator locator) {
+    public void waitAndClickByLocator(Locator locator) {
         locator.waitFor(new Locator.WaitForOptions().setState(WaitForSelectorState.VISIBLE));
         locator.click();
     }
 
     public void navigateTo(String url) {
         this.getPage().navigate(url);
+    }
+
+    public void fillField(String placeholder, String value) {
+        this.getPage().getByPlaceholder(placeholder).fill(value);
     }
 }

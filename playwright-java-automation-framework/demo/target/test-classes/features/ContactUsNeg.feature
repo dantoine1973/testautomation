@@ -1,6 +1,6 @@
 Feature: webdriveruniversity.com - Contact Us Page - Invalid Email Address
 
-    Scenario: Valid Contact Us Form Submission
+    Scenario: Invalid Contact Us Form Submission
         Given I navigate to the WebDriverUniversity homepage
         When I click on Contact Us
         And I type in a first name

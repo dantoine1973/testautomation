@@ -1,103 +1,105 @@
 package step_definitions.positive;
 
 import com.example.PlaywrightBase2;
-import com.microsoft.playwright.Locator;
-import static com.microsoft.playwright.assertions.PlaywrightAssertions.assertThat;
-import java.util.List;
+// import com.microsoft.playwright.Locator;
+// import static com.microsoft.playwright.assertions.PlaywrightAssertions.assertThat;
+// import java.util.List;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import net.datafaker.Faker;
-import pages.base.BasePage;
+// import pages.base.BasePage;
+import pages.HomePage;
+import pages.ContactUsPage;
 import context.PersonContext;
 
 public class ContactUsSteps extends PlaywrightBase2 {
     private final Faker faker = new Faker();
     private final PersonContext personContext;
-    private final BasePage basePage;
+    // private final BasePage basePage;
+    private final HomePage homePage;
+    private final ContactUsPage contactUsPage;
 
     public ContactUsSteps(PersonContext personContext) {
         this.personContext = personContext;
-        this.basePage = new BasePage();
+        this.homePage = new HomePage();
+        this.contactUsPage = new ContactUsPage();
     }
 
     @Given("I navigate to the WebDriverU homepage")
     public void navigateToHomepage() {
-        basePage.navigateTo("https://www.webdriveruniversity.com/");
+        homePage.navigateToHomePage();
     }
 
     @When("I click on the Contact Us button")
     public void clickContactUs() {
-        basePage.waitAndClickByRole("LINK", "CONTACT US");
-
-        // this.setPage(this.getPage().waitForPopup(() -> this.getPage().getByText("CONTACT US").first().click()));
-        // this.getPage().waitForURL("**/Contact-Us/contactus.html");
+        homePage.clickContactUs();
     }
 
     @And("I type in a random first name")
     public void typeRandomFirstName() {
         String randomFirstName = faker.name().firstName();
         personContext.setRandomFirstName(randomFirstName);
-        this.getPage().locator("input[name='first_name']").fill(randomFirstName);
+        contactUsPage.typeFirstName(randomFirstName);
     }
 
     @And("I type in a specific first name {string}")
     public void typeSpecificFirstName(String firstName) {
-        this.getPage().locator("input[name='first_name']").fill(firstName);
+        contactUsPage.typeFirstName(firstName);
     }
 
     @And("I type in a random last name")
     public void typeRandomLastName() {
         String randomLastName = faker.name().lastName();
         personContext.setRandomLastName(randomLastName);
-        this.getPage().locator("input[name='last_name']").fill(randomLastName);
+        contactUsPage.typeLastName(randomLastName);
     }
 
     @And("I type in a specific last name {string}")
     public void typeSpecificLastName(String lastName) {
-        this.getPage().locator("input[name='last_name']").fill(lastName);
+        contactUsPage.typeLastName(lastName);
     }
 
     @And("I type a first name {string} and a last name {string}")
     public void typeSpecificFirstAndLastName(String firstName, String lastName) {
-        this.getPage().locator("input[name='first_name']").fill(firstName);
-        this.getPage().locator("input[name='last_name']").fill(lastName);
+        contactUsPage.typeFirstName(firstName);
+        contactUsPage.typeLastName(lastName);
     }
 
     @And("I type in a random valid email address")
-    public void typeRandomEmail() {
+    public void typeRandomEmailAddress() {
         String randomEmailAddress = faker.internet().emailAddress();
         personContext.setRandomEmailAddress(randomEmailAddress);
-        this.getPage().locator("input[name='email']").fill(randomEmailAddress);
+        contactUsPage.typeEmailAddress(randomEmailAddress);
     }
 
     @And("I type in a specific valid email address {string}")
-    public void typeSpecificEmail(String emailAddress) {
-        this.getPage().locator("input[name='email']").fill(emailAddress);
+    public void typeSpecificEmailAddress(String emailAddress) {
+        contactUsPage.typeEmailAddress(emailAddress);
     }
 
-@And("I type a random comment in the comment input field")
+    @And("I type a random comment in the comment input field")
     public void typeRandomComment() {
         String randomComment = faker.lorem().sentence();
         personContext.setRandomComment(randomComment);
-        this.getPage().locator("textarea[name='message']").fill(randomComment);
+        contactUsPage.typeComment(randomComment);
     }
 
     @And("I type the specific text {string} and a number {int} in the comment input field")
     public void typeComment(String commentText, Integer int1) {
-        this.getPage().locator("textarea[name='message']").fill(commentText + " " + int1);
+        contactUsPage.typeComment(commentText + " " + int1);
     }
 
     @And("I type an email address {string} and a comment {string}")
-    public void typeSpecificEmailAndComment(String emailAddress, String commentText) {
-        this.getPage().locator("input[name='email']").fill(emailAddress);
-        this.getPage().locator("textarea[name='message']").fill(commentText);
+    public void typeSpecificEmailAddressAndComment(String emailAddress, String commentText) {
+        contactUsPage.typeEmailAddress(emailAddress);
+        contactUsPage.typeComment(commentText);
     }
 
     @And("I click on the Submit button")
     public void clickSubmit() {
-        this.getPage().locator("input[type='submit']").click();
+        contactUsPage.clickSubmit();
     }
 
     @Then("I should be presented with a successful contact us submission message")
@@ -105,12 +107,7 @@ public class ContactUsSteps extends PlaywrightBase2 {
 
         // Wait for the navigation triggered by the Submit button
         this.getPage().waitForURL("**/contactus.html");
-
-        // Now the success message exists
-        Locator locator = this.getPage().locator("#contact_reply h1");
-
-        assertThat(locator).isVisible();
-        assertThat(locator).hasText("Thank You for your Message!");
+        contactUsPage.verifyMessage(this.getPage().locator("xpath=//body"), "Thank You for your Message!");
     }
 
     @Then("I should be presented with header text {string}")
@@ -118,16 +115,6 @@ public class ContactUsSteps extends PlaywrightBase2 {
 
         // Wait for the navigation triggered by the Submit button
         this.getPage().waitForURL("**/contactus.html");
-
-        // Now the success message exists
-
-        this.getPage().waitForSelector("//h1 | //body");
-
-        List<String> texts = this.getPage().locator("//h1 | //body").allInnerTexts();
-
-        boolean found = texts.stream().anyMatch(t -> t.contains(messageText));
-
-        assert found : "Expected header text '" + messageText +
-                "' not found. Actual text: " + texts;
+        contactUsPage.verifyMessage(this.getPage().locator("xpath=//body"), messageText);
     }
 }
