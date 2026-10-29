@@ -128,3 +128,29 @@ Playwright Python Automation Testing/**/__pycache__/
 Playwright Python Automation Testing/**/.pytest_cache/
 Playwright Python Automation Testing/**/allure-results/
 Playwright Python Automation Testing/**/allure-report/
+playwright-java-automation-framework/demo/.allure/allure-2.20.1/plugins/behaviors-plugin/allure-plugin.yml
+playwright-java-automation-framework/demo/target/classes/com/example/PlaywrightBase2.class
+playwright-java-automation-framework/demo/.allure/allure-2.20.1/plugins/xunit-xml-plugin/allure-plugin.yml
+playwright-java-automation-framework/demo/.allure/allure-2.20.1/plugins/xray-plugin/allure-plugin.yml
+playwright-java-automation-framework/demo/.allure/allure-2.20.1/plugins/xctest-plugin/allure-plugin.yml
+playwright-java-automation-framework/demo/.allure/allure-2.20.1/plugins/trx-plugin/allure-plugin.yml
+playwright-java-automation-framework/demo/.allure/allure-2.20.1/plugins/screen-diff-plugin/static/styles.css
+playwright-java-automation-framework/demo/.allure/allure-2.20.1/plugins/screen-diff-plugin/static/index.js
+playwright-java-automation-framework/demo/.allure/allure-2.20.1/plugins/screen-diff-plugin/allure-plugin.yml
+playwright-java-automation-framework/demo/.allure/allure-2.20.1/plugins/packages-plugin/static/index.js
+playwright-java-automation-framework/demo/.allure/allure-2.20.1/plugins/packages-plugin/allure-plugin.yml
+playwright-java-automation-framework/demo/.allure/allure-2.20.1/plugins/jira-plugin/allure-plugin.yml
+playwright-java-automation-framework/demo/.allure/allure-2.20.1/plugins/junit-xml-plugin/allure-plugin.yml
+playwright-java-automation-framework/demo/.allure/allure-2.20.1/plugins/custom-logo-plugin/allure-plugin.yml
+playwright-java-automation-framework/demo/.allure/allure-2.20.1/plugins/custom-logo-plugin/static/custom-logo.svg
+.gitignore
+playwright-java-automation-framework/demo/.allure/allure-2.20.1/plugins/behaviors-plugin/static/index.js
+playwright-java-automation-framework/demo/.allure/allure-2.20.1/lib/config/logback.xml
+playwright-java-automation-framework/demo/.allure/allure-2.20.1/config/allure-junit.yml
+playwright-java-automation-framework/demo/.allure/allure-2.20.1/config/allure-cucumber.yml
+playwright-java-automation-framework/demo/.allure/allure-2.20.1/plugins/custom-logo-plugin/static/styles.css
+playwright-java-automation-framework/demo/.allure/allure-2.20.1/config/allure.yml
+playwright-java-automation-framework/demo/target/classes/com/example/App.class
+playwright-java-automation-framework/demo/target/classes/com/example/FirstMain.class
+playwright-java-automation-framework/demo/target/classes/com/example/PlaywrightBase2.class
+playwright-java-automation-framework/demo/target/cucumber-reports/runcucumbertest.html

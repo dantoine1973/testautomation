@@ -10,6 +10,7 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInfo;
+import org.junit.jupiter.api.Disabled;
 
 import static org.junit.jupiter.api.Assertions.assertAll;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -70,11 +71,12 @@ public class PlaywrightBase2Test {
         assertEquals("firefox", System.getProperty("browser"));
     }
 
-/*     @Test
+    @Disabled("Edge is not supported in this test environment")
+    @Test
     @BrowserProperty("edge")
     void browserShouldUseEdgeWhenEdgeIsSpecified() {
         assertEquals("edge", System.getProperty("browser"));
-    } */
+    }
 
     @Test
     @BrowserProperty("chrome")
