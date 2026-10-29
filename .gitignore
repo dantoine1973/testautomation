@@ -154,3 +154,6 @@ playwright-java-automation-framework/demo/target/classes/com/example/App.class
 playwright-java-automation-framework/demo/target/classes/com/example/FirstMain.class
 playwright-java-automation-framework/demo/target/classes/com/example/PlaywrightBase2.class
 playwright-java-automation-framework/demo/target/cucumber-reports/runcucumbertest.html
+playwright-java-automation-framework/demo/target/classes/com/example/App.class
+playwright-java-automation-framework/demo/target/classes/com/example/FirstMain.class
+playwright-java-automation-framework/demo/target/classes/com/example/PlaywrightBase2.class
