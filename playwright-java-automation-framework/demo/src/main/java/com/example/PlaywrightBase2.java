@@ -83,11 +83,10 @@ public abstract class PlaywrightBase2 {
                 }
             };
 
-            boolean headless = Boolean.parseBoolean(System.getProperty("headless", "false"));
+            boolean headless = Boolean.parseBoolean(System.getProperty("headless", "true"));
 
             BrowserType.LaunchOptions launchOptions = new BrowserType.LaunchOptions()
-                    .setHeadless(headless)
-                    .setArgs(Arrays.asList("--start-maximized"));
+                    .setHeadless(headless);
 
             if (channel != null) {
                 launchOptions.setChannel(channel);
@@ -98,7 +97,7 @@ public abstract class PlaywrightBase2 {
             // ⭐ IMPORTANT: remove viewport so maximize works
 
             context.set(browser.get().newContext(
-                    new Browser.NewContextOptions().setViewportSize(null)));
+                    new Browser.NewContextOptions().setViewportSize(1920, 1080)));
 
             // context.set(browser.get().newContext(
             // new Browser.NewContextOptions().setViewportSize(null)));
@@ -113,11 +112,25 @@ public abstract class PlaywrightBase2 {
 
             // ⭐ Cross-browser maximize (works in Firefox)
 
-            Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+            // int width, height;
 
-            page.get().setViewportSize(screenSize.width, screenSize.height);
+/*             if (headless) {
+                logger.info("Running in headless mode, skipping maximize.");
+                width = 1920;
+                height = 1080;
+            } else {
+                // Get the screen size using AWT Toolkit
+
+                Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+                width = (int) screenSize.getWidth();
+                height = (int) screenSize.getHeight();
+            }
+
+            page.get().setViewportSize(width, height); */
+
         } catch (Exception e) {
             logger.log(Level.SEVERE, "Error during Playwright setup: " + e.getMessage(), e);
+            throw new IllegalStateException("Error during Playwright setup", e);
         } finally {
             logger.info("Playwright setup complete");
         }

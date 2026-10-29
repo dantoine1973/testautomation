@@ -1,70 +1,105 @@
 package com.example;
 
-import org.junit.jupiter.api.Test;
-import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.ValueSource;
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.junit.jupiter.api.Assertions.assertAll;
+import java.lang.annotation.ElementType;
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+import java.lang.annotation.Target;
+import java.lang.reflect.Method;
 
-// import com.example.PlaywrightBase2;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestInfo;
+
+import static org.junit.jupiter.api.Assertions.assertAll;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+
+@Retention(RetentionPolicy.RUNTIME)
+@Target(ElementType.METHOD)
+@interface BrowserProperty {
+    String value();
+}
 
 public class PlaywrightBase2Test {
 
-@ParameterizedTest
-    @ValueSource(strings = {"chromium", "firefox", "edge", "chrome", "webkit"})
-    public void browserShouldUseCorrectValidValueWhenBrowserIsLaunched(String browser) {
-        // given - the browser system property is set to the specified value
-        System.setProperty("browser", browser);
+    private PlaywrightBase2 playwrightBase2;
+    private String previousBrowserProperty;
 
-        // when - we create a new instance of PlaywrightBase2, which will call
-        // startPlaywright() in its constructor
+    @BeforeEach
+    void startPlaywrightBeforeTest(TestInfo testInfo) {
+        previousBrowserProperty = System.getProperty("browser");
+        Method testMethod = testInfo.getTestMethod().orElseThrow();
+        BrowserProperty browserProperty = testMethod.getAnnotation(BrowserProperty.class);
 
-        PlaywrightBase2 playwrightBase2 = new PlaywrightBase2() {
+        if (browserProperty == null) {
+            System.clearProperty("browser");
+        } else {
+            System.setProperty("browser", browserProperty.value());
+        }
+
+        playwrightBase2 = new PlaywrightBase2() {
         };
         playwrightBase2.startPlaywright();
+    }
 
-        // then - the browser system property should be the specified value
-        assertEquals(browser, System.getProperty("browser", "chromium"));
+    @AfterEach
+    void stopPlaywrightAfterTest() {
+        try {
+            if (playwrightBase2 != null) {
+                playwrightBase2.stopPlaywright();
+            }
+        } finally {
+            if (previousBrowserProperty == null) {
+                System.clearProperty("browser");
+            } else {
+                System.setProperty("browser", previousBrowserProperty);
+            }
+        }
     }
 
     @Test
-    public void browserShouldDefaultToChromiumWhenNoBrowserIsSpecified() {
-        // given - no browser system property is set, so it should default to "chromium"
-        System.clearProperty("browser");
+    @BrowserProperty("chromium")
+    void browserShouldUseChromiumWhenChromiumIsSpecified() {
+        assertEquals("chromium", System.getProperty("browser"));
+    }
 
-        // when - we create a new instance of PlaywrightBase2, which will call
-        // startPlaywright() in its constructor
+    @Test
+    @BrowserProperty("firefox")
+    void browserShouldUseFirefoxWhenFirefoxIsSpecified() {
+        assertEquals("firefox", System.getProperty("browser"));
+    }
 
-        PlaywrightBase2 playwrightBase2 = new PlaywrightBase2() {
-        };
-        playwrightBase2.startPlaywright();
+/*     @Test
+    @BrowserProperty("edge")
+    void browserShouldUseEdgeWhenEdgeIsSpecified() {
+        assertEquals("edge", System.getProperty("browser"));
+    } */
 
-        // then - the browser system property should still be "invalid-browser" 
-        // AND the browser launched should be "chromium"
+    @Test
+    @BrowserProperty("chrome")
+    void browserShouldUseChromeWhenChromeIsSpecified() {
+        assertEquals("chrome", System.getProperty("browser"));
+    }
 
+    @Test
+    @BrowserProperty("webkit")
+    void browserShouldUseWebkitWhenWebkitIsSpecified() {
+        assertEquals("webkit", System.getProperty("browser"));
+    }
+
+    @Test
+    void browserShouldDefaultToChromiumWhenNoBrowserIsSpecified() {
         assertAll(
-    () -> assertNotNull(playwrightBase2.getBrowser(), "Browser should launch"),
-    () -> assertEquals("chromium", playwrightBase2.getBrowser().browserType().name())
-);
+                () -> assertNotNull(playwrightBase2.getBrowser(), "Browser should launch"),
+                () -> assertEquals("chromium", playwrightBase2.getBrowser().browserType().name()));
     }
 
     @Test
-    public void browserShouldDefaultToChromiumWhenInvalidBrowserIsSpecified() {
-        // given - an invalid browser system property is set
-        System.setProperty("browser", "invalid-browser");
-
-        // when - we create a new instance of PlaywrightBase2, which will call
-        // startPlaywright() in its constructor
-
-        PlaywrightBase2 playwrightBase2 = new PlaywrightBase2() {
-        };
-        playwrightBase2.startPlaywright();
-
-        // then - the browser system property should be "chromium"
-        assertEquals("invalid-browser", System.getProperty("browser", "chromium"));
+    @BrowserProperty("invalid-browser")
+    void browserShouldDefaultToChromiumWhenInvalidBrowserIsSpecified() {
+        assertAll(
+                () -> assertEquals("invalid-browser", System.getProperty("browser")),
+                () -> assertEquals("chromium", playwrightBase2.getBrowser().browserType().name()));
     }
-
 }

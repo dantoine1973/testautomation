@@ -88,10 +88,10 @@
           <artifactId>maven-compiler-plugin</artifactId>
           <version>3.8.0</version>
         </plugin>
-        <plugin>
+<!--         <plugin>
           <artifactId>maven-surefire-plugin</artifactId>
           <version>2.22.1</version>
-        </plugin>
+        </plugin> -->
         <plugin>
           <artifactId>maven-jar-plugin</artifactId>
           <version>3.0.2</version>
@@ -123,11 +123,57 @@
         <dependencies>
           <dependency>
             <groupId>org.apache.maven.surefire</groupId>
-            <artifactId>surefire-testng</artifactId>
+            <artifactId>surefire-junit-platform</artifactId>
             <version>3.2.5</version>
           </dependency>
         </dependencies>
         <configuration>
+          <includes>
+            <include>**/*Test.java</include>
+          </includes>
+          <parallel>classes</parallel>
+          <threadCount>${threadCount}</threadCount>
+          <systemPropertyVariables>
+            <browser>${browser}</browser>
+            <threadCount>${threadCount}</threadCount>
+          </systemPropertyVariables>
+          <properties>
+            <property>
+              <name>dataproviderthreadcount</name>
+              <value>${threadCount}</value>
+            </property>
+          </properties>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-failsafe-plugin</artifactId>
+        <version>3.2.5</version>
+        <dependencies>
+          <dependency>
+            <groupId>org.apache.maven.surefire</groupId>
+            <artifactId>surefire-testng</artifactId>
+            <version>3.2.5</version>
+          </dependency>
+        </dependencies>
+        <executions>
+          <execution>
+            <goals>
+              <goal>integration-test</goal>
+              <goal>verify</goal>
+            </goals>
+          </execution>
+        </executions>
+        <configuration>
+          <includes>
+            <include>**/*Test.java</include>
+          </includes>
+          <excludes>
+            <exclude>**/PlaywrightBase2Test.java</exclude>
+            <exclude>**/CucumberContactUsNegTest.java</exclude>
+            <exclude>**/CucumberContactUsTest.java</exclude>
+            <exclude>**/CucumberLoginPageTest.java</exclude>
+          </excludes>
           <parallel>classes</parallel>
           <threadCount>${threadCount}</threadCount>
           <systemPropertyVariables>
